@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#183d32">
+<meta name="description" content="An offline-first spaced revision tracker.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<title>RecallFlow</title>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="mark">◉</span><span><b>RecallFlow</b><small>Knowledge, retained.</small></span></a>
+  <button class="iconbtn" id="settingsOpen" aria-label="Settings">⚙</button>
+</header>
+<main class="wrap">
+  <section class="hero">
+    <div><p class="eyebrow" id="todayLabel">YOUR REVISION SPACE</p><h1>Make knowledge<br><i>stick.</i></h1><p class="muted">A little recall, at the right time.</p></div>
+    <div class="orb" aria-hidden="true"><span></span></div>
+  </section>
+  <section class="stats">
+    <article><b id="dueCount">0</b><span>Due today</span></article>
+    <article><b id="activeCount">0</b><span>Topics active</span></article>
+    <article><b id="doneCount">0</b><span>Done today</span></article>
+  </section>
+  <section class="sectionhead"><div><p class="eyebrow">YOUR PLAN</p><h2>Today's revisions</h2></div><button class="textbtn" id="allTopicsBtn">All topics ↗</button></section>
+  <div id="dueList" class="cards"></div>
+  <section class="sectionhead addhead"><div><p class="eyebrow">BUILD YOUR MEMORY</p><h2>Add what you studied</h2></div></section>
+  <form id="studyForm" class="panel">
+    <label>Topic or chapter<input id="topic" required maxlength="100" placeholder="e.g. Quadratic Equations"></label>
+    <div class="two">
+      <label>Subject<select id="subject"><option>Mathematics</option><option>Physics</option><option>Chemistry</option><option>Other</option></select></label>
+      <label>Study date<input id="studyDate" type="date" required></label>
+    </div>
+    <label>Optional note<textarea id="note" rows="2" maxlength="300" placeholder="Key ideas or things to revisit..."></textarea></label>
+    <button class="primary" type="submit">＋ Add to revision plan</button>
+  </form>
+  <section class="sectionhead"><div><p class="eyebrow">KEEP YOUR MOMENTUM</p><h2>All topics</h2></div><span class="muted small" id="topicTotal">0 topics</span></section>
+  <div id="topicList" class="cards"></div>
+  <footer>Stored on this device · No account · No cloud sync</footer>
+</main>
+
+<dialog id="settingsDialog">
+  <form method="dialog" class="dialoghead"><div><p class="eyebrow">PERSONALISE</p><h2>Settings</h2></div><button class="iconbtn" aria-label="Close">×</button></form>
+  <div class="dialogbody">
+    <label>Revision intervals <small>Days counted from the original study date. Include 1 for same-day recall.</small>
+      <input id="intervals" value="1, 2, 4, 7, 14, 30" placeholder="1, 2, 4, 7, 14, 30">
+    </label>
+    <p class="hint">Enter positive whole numbers separated by commas. The first interval is usually 1.</p>
+    <button class="primary" id="saveSettings" type="button">Save revision cycle</button>
+    <hr>
+    <h3>Reminders</h3>
+    <p class="muted small">RecallFlow checks what is due whenever you open it. Browser background reminders are not guaranteed on every Android device. You can enable notifications for reminders while the app is active.</p>
+    <button class="secondary" id="notifyBtn" type="button">Enable notifications</button>
+    <p id="notifyStatus" class="hint"></p>
+    <hr>
+    <h3>Backup & restore</h3>
+    <div class="two"><button class="secondary" id="exportBtn" type="button">Export backup</button><label class="secondary filelabel">Import backup<input id="importFile" type="file" accept="application/json"></label></div>
+    <p class="hint">Keep a backup if you change phones or clear browser data.</p>
+  </div>
+</dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body></html>
