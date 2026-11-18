@@ -1,23 +1,12 @@
-RECALLFLOW — OFFLINE-FIRST PWA
+RECALLFLOW 2.0 — INSTALL
+1. Extract this ZIP and upload the CONTENTS of this folder to the root of a GitHub repository. Keep icons/icon.svg in its folder.
+2. GitHub → Settings → Pages → Deploy from a branch → main → /(root) → Save.
+3. Open the HTTPS Pages address in Android Chrome → menu ⋮ → Install app / Add to Home screen.
 
-Included:
-- Add study sessions with subject, topic, date and optional note
-- Automatically schedules revisions using editable day intervals
-- Default intervals: 1, 2, 4, 7, 14, 30 (counted from study date)
-- Due, overdue and completed revision views
-- Local IndexedDB storage; no account, cloud database or analytics
-- JSON backup and restore
-- Installable PWA with service-worker cache
+DATA: Topics and history are stored locally in this browser. No account, cloud sync, or server database. Export JSON backups regularly. Clearing site data may erase topics. Import replaces the current topic list.
 
-IMPORTANT LIMITATIONS:
-1. PWA installation/service workers require HTTPS or localhost. Opening index.html directly as a file will let you inspect the page, but install/offline caching won't work correctly.
-2. This version checks due revisions when the app is opened. Browser notifications are best-effort and are NOT guaranteed to fire at a chosen time while the app is closed. Android browser/PWA background scheduling varies.
-3. Data is stored only in this browser on this device. Export a JSON backup regularly. Clearing site data can erase the database.
+REVISION: Initial cycle Day 1, 2, 4, 7, 14, 21, 28. After a confident Day 28 check, maintenance gaps are 1, 2, 3, 4, then 6 months. Red recall retries in 2 days; partial recall retries in 14 days. After a successful retry, the same maintenance interval is tried again. These are practical defaults, not a guaranteed optimum.
 
-QUICK START:
-- Serve this folder from localhost or an HTTPS static host.
-- Open the URL in Chrome on Android.
-- Chrome menu > Install app / Add to Home screen.
-- Open Settings in RecallFlow and optionally enable notifications.
+REMINDERS: Due topics are shown when the app opens. Browser-only PWAs cannot reliably schedule notifications while fully closed; use a phone reminder for a guaranteed nightly prompt.
 
-No Cloudflare, Supabase, login, or ongoing server database is used by the app itself.
+OFFLINE: The app shell is cached after the first successful HTTPS visit. Full-bleed forest-green header/sidebar and cream background are used with standalone display and a dark theme color. Android may still control system status/navigation bars.

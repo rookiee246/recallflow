@@ -1,66 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#183d32">
-<meta name="description" content="An offline-first spaced revision tracker.">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="styles.css">
-<title>RecallFlow</title>
-</head>
-<body>
-<header class="topbar">
-  <a class="brand" href="#"><span class="mark">◉</span><span><b>RecallFlow</b><small>Knowledge, retained.</small></span></a>
-  <button class="iconbtn" id="settingsOpen" aria-label="Settings">⚙</button>
-</header>
-<main class="wrap">
-  <section class="hero">
-    <div><p class="eyebrow" id="todayLabel">YOUR REVISION SPACE</p><h1>Make knowledge<br><i>stick.</i></h1><p class="muted">A little recall, at the right time.</p></div>
-    <div class="orb" aria-hidden="true"><span></span></div>
-  </section>
-  <section class="stats">
-    <article><b id="dueCount">0</b><span>Due today</span></article>
-    <article><b id="activeCount">0</b><span>Topics active</span></article>
-    <article><b id="doneCount">0</b><span>Done today</span></article>
-  </section>
-  <section class="sectionhead"><div><p class="eyebrow">YOUR PLAN</p><h2>Today's revisions</h2></div><button class="textbtn" id="allTopicsBtn">All topics ↗</button></section>
-  <div id="dueList" class="cards"></div>
-  <section class="sectionhead addhead"><div><p class="eyebrow">BUILD YOUR MEMORY</p><h2>Add what you studied</h2></div></section>
-  <form id="studyForm" class="panel">
-    <label>Topic or chapter<input id="topic" required maxlength="100" placeholder="e.g. Quadratic Equations"></label>
-    <div class="two">
-      <label>Subject<select id="subject"><option>Mathematics</option><option>Physics</option><option>Chemistry</option><option>Other</option></select></label>
-      <label>Study date<input id="studyDate" type="date" required></label>
-    </div>
-    <label>Optional note<textarea id="note" rows="2" maxlength="300" placeholder="Key ideas or things to revisit..."></textarea></label>
-    <button class="primary" type="submit">＋ Add to revision plan</button>
-  </form>
-  <section class="sectionhead"><div><p class="eyebrow">KEEP YOUR MOMENTUM</p><h2>All topics</h2></div><span class="muted small" id="topicTotal">0 topics</span></section>
-  <div id="topicList" class="cards"></div>
-  <footer>Stored on this device · No account · No cloud sync</footer>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#183f35"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icons/icon.svg"><link rel="stylesheet" href="styles.css"><title>RecallFlow</title></head><body>
+<header><button id="menu">☰</button><b>◉ RecallFlow</b><button id="add">＋</button></header><div id="shade"></div><aside id="side"><div class="logo">◉ <b>RecallFlow</b><small>Knowledge, connected.</small></div><nav><button data-page="home">⌂ Dashboard</button><button data-page="due">◷ Today's revisions <i id="badge"></i></button><button data-page="topics">▤ All topics</button><button data-page="calendar">▦ Calendar</button><button data-page="stats">▥ Statistics</button><button data-page="settings">⚙ Settings & backup</button></nav><small class="foot">Stored privately on this device</small></aside>
+<main>
+<section id="home" class="page"><div class="head"><div><small>YOUR STUDY SPACE</small><h1>Dashboard</h1><p>Small, consistent reviews make knowledge last.</p></div><button class="primary" id="add2">＋ Add topic</button></div><div class="stats"><article><small>Due now</small><strong id="nDue">0</strong></article><article><small>Active topics</small><strong id="nTopics">0</strong></article><article><small>Done today</small><strong id="nDone">0</strong></article></div><h2>Needs attention</h2><div id="homeList"></div><div id="homeEmpty" class="empty"><h3>A clear path ahead</h3><p>No reviews are due. Add a topic after studying it.</p></div><p class="tip">✦ Recall first, then check your notes. Rate your memory honestly.</p></section>
+<section id="due" class="page"><small>YOUR NEXT STEPS</small><h1>Today's revisions</h1><p>Overdue topics appear here too.</p><div id="dueList"></div><div id="dueEmpty" class="empty">You're up to date.</div></section>
+<section id="topics" class="page"><small>KNOWLEDGE LIBRARY</small><h1>All topics</h1><p>Manage what you're learning.</p><div class="filters"><input id="search" placeholder="Search topics"><select id="subjectFilter"><option value="">All subjects</option><option>Mathematics</option><option>Physics</option><option>Chemistry</option><option>Biology</option><option>Other</option></select></div><div id="allList"></div></section>
+<section id="calendar" class="page"><small>YOUR LEARNING HISTORY</small><h1>Study calendar</h1><div class="panel"><div class="month"><button id="prev">‹</button><b id="month"></b><button id="next">›</button></div><div id="days" class="days"></div></div><h2 id="picked"></h2><div id="dayList"></div></section>
+<section id="stats" class="page"><small>YOUR PROGRESS</small><h1>Statistics</h1><div class="stats"><article><small>Reviews completed</small><strong id="reviews">0</strong></article><article><small>Topics mastered</small><strong id="mastered">0</strong></article><article><small>Needs another look</small><strong id="weak">0</strong></article></div><div class="panel"><h2>Revision method</h2><p>Initial cycle: Day 1, 2, 4, 7, 14, 21 and 28. After a confident Day 28 review, gaps extend to 1, 2, 3, 4 and then 6 months. These are practical defaults, not a universal scientific formula.</p></div></section>
+<section id="settings" class="page"><small>YOUR DATA, YOUR DEVICE</small><h1>Settings & backup</h1><div class="panel"><h2>Backup</h2><p>Export regularly. Data stays in this browser and does not sync across devices.</p><button class="primary" id="export">↓ Export backup</button><label class="secondary file">↑ Import backup<input type="file" id="import" accept="application/json"></label><p id="backupMsg"></p></div><div class="panel"><h2>Reminders</h2><p>Due topics appear when you open the app. Browser-only PWAs cannot reliably send timed reminders while fully closed. Use your phone's reminder app for a guaranteed nightly prompt.</p><button class="secondary" id="notify">Enable notifications when open</button><p id="notifyMsg"></p></div><div class="panel"><h2>Revision schedule</h2><p>Initial: 1, 2, 4, 7, 14, 21, 28 days. Maintenance: 1, 2, 3, 4, then 6 months between confident checks. Red recall retries in 2 days; partial recall retries in 14 days.</p></div><div class="panel"><h2>Reset</h2><button class="danger" id="reset">Delete all local data</button></div></section>
 </main>
-
-<dialog id="settingsDialog">
-  <form method="dialog" class="dialoghead"><div><p class="eyebrow">PERSONALISE</p><h2>Settings</h2></div><button class="iconbtn" aria-label="Close">×</button></form>
-  <div class="dialogbody">
-    <label>Revision intervals <small>Days counted from the original study date. Include 1 for same-day recall.</small>
-      <input id="intervals" value="1, 2, 4, 7, 14, 30" placeholder="1, 2, 4, 7, 14, 30">
-    </label>
-    <p class="hint">Enter positive whole numbers separated by commas. The first interval is usually 1.</p>
-    <button class="primary" id="saveSettings" type="button">Save revision cycle</button>
-    <hr>
-    <h3>Reminders</h3>
-    <p class="muted small">RecallFlow checks what is due whenever you open it. Browser background reminders are not guaranteed on every Android device. You can enable notifications for reminders while the app is active.</p>
-    <button class="secondary" id="notifyBtn" type="button">Enable notifications</button>
-    <p id="notifyStatus" class="hint"></p>
-    <hr>
-    <h3>Backup & restore</h3>
-    <div class="two"><button class="secondary" id="exportBtn" type="button">Export backup</button><label class="secondary filelabel">Import backup<input id="importFile" type="file" accept="application/json"></label></div>
-    <p class="hint">Keep a backup if you change phones or clear browser data.</p>
-  </div>
-</dialog>
-<div id="toast" role="status" aria-live="polite"></div>
-<script src="app.js"></script>
-</body></html>
+<dialog id="topicDlg"><form id="topicForm"><div class="dlghead"><h2 id="dlgTitle">Add topic</h2><button type="button" class="x" data-close>×</button></div><input type="hidden" id="tid"><label>Topic name<input id="name" required maxlength="100" placeholder="e.g. Quadratic equations"></label><label>Subject<select id="subject"><option>Mathematics</option><option>Physics</option><option>Chemistry</option><option>Biology</option><option>Other</option></select></label><label>First learned date<input id="date" type="date" required></label><label>Importance<select id="importance"><option value="normal">Normal</option><option value="high">High priority</option><option value="low">Low priority</option></select></label><label>Quick notes (optional)<textarea id="note" rows="3" placeholder="Formulas or points you tend to forget…"></textarea></label><div class="actions"><button type="button" class="secondary" data-close>Cancel</button><button class="primary">Save topic</button></div></form></dialog>
+<dialog id="reviewDlg"><form method="dialog"><div class="dlghead"><h2 id="reviewName">Recall check</h2><button class="x" value="cancel">×</button></div><p>How well could you recall and explain the key ideas?</p><input type="hidden" id="rid"><div class="ratings"><button type="button" data-rate="red" class="rate red"><b>Needs relearning</b><small>I couldn't recall the key ideas.</small><small>Retry in 2 days</small></button><button type="button" data-rate="orange" class="rate orange"><b>Partly remembered</b><small>I remembered some, but had gaps.</small><small>Retry in 14 days</small></button><button type="button" data-rate="green" class="rate green"><b>Confident</b><small>I recalled and could explain it.</small><small>Move to next interval</small></button></div></form></dialog>
+<dialog id="detailDlg"><div id="detail"></div></dialog><script src="app.js"></script></body></html>
