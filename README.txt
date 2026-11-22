@@ -11,5 +11,8 @@ REMINDERS: Due topics are shown when the app opens. Browser-only PWAs cannot rel
 
 OFFLINE: The app shell is cached after the first successful HTTPS visit. Full-bleed forest-green header/sidebar and cream background are used with standalone display and a dark theme color. Android may still control system status/navigation bars.
 
-
-RecallFlow 2.0.1 update: Dashboard is activated on initial load, outer background/shell styling is green for a full-bleed feel, app icon uses two orbiting spheres, and service worker cache was versioned for refresh. Existing local storage key and notification behavior remain unchanged.
+Version 2.0.2 repair:
+- Dashboard activates on first load and refresh.
+- Service worker activates immediately and checks the network before cached assets.
+- Updated two-sphere orbit icon and green outer background.
+- Existing localStorage key recallflow-v2 is preserved.
