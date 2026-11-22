@@ -10,3 +10,6 @@ REVISION: Initial cycle Day 1, 2, 4, 7, 14, 21, 28. After a confident Day 28 che
 REMINDERS: Due topics are shown when the app opens. Browser-only PWAs cannot reliably schedule notifications while fully closed; use a phone reminder for a guaranteed nightly prompt.
 
 OFFLINE: The app shell is cached after the first successful HTTPS visit. Full-bleed forest-green header/sidebar and cream background are used with standalone display and a dark theme color. Android may still control system status/navigation bars.
+
+
+RecallFlow 2.0.1 update: Dashboard is activated on initial load, outer background/shell styling is green for a full-bleed feel, app icon uses two orbiting spheres, and service worker cache was versioned for refresh. Existing local storage key and notification behavior remain unchanged.
