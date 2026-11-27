@@ -12,7 +12,7 @@ UPLOADING TO GITHUB (replace the old files)
 Use a laptop/desktop browser if you can (phone browsers handle folder uploads badly).
 1. Unzip this file.
 2. Open github.com/rookiee246/recallflow > Add file > Upload files.
-3. Drag in index.html, app.js, styles.css, sw.js, manifest.webmanifest, README.txt, SCHEMA.md, STUDY_PROCESSOR_PROMPT.txt, sample-import.json and the folders icons and android-build. Same names replace the old ones. Commit changes.
+3. Drag in index.html, app.js, styles.css, sw.js, manifest.webmanifest, README.txt, SCHEMA.md, STUDY_PROCESSOR_PROMPT.txt, sample-import.json and the folder android-build (skip it if you are on a phone; the build then makes its own key, so a later rebuilt APK needs the old app uninstalled first, so export a backup before that). The icons folder is unchanged. Same names replace the old ones. Commit changes.
 4. The Android build file lives in a hidden folder, so add it separately: Add file > Create new file > type  .github/workflows/build-android.yml  as the name (typing the slashes creates the folders) > paste the contents of that file from the ZIP > Commit.
 5. Settings > Pages must still be: Deploy from a branch > main > / (root). Wait about a minute, open the site, and refresh once. The PWA updates itself from then on.
 
