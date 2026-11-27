@@ -1,0 +1,61 @@
+{
+  "format": "recallflow-import-v2",
+  "entries": [
+    {
+      "subject": "Physics",
+      "chapter": "Electrostatics",
+      "topic": "Coulomb's law",
+      "studyDate": "2026-11-27",
+      "importance": "normal",
+      "coverage": {
+        "studied": "Statement and mathematical form",
+        "understood": "",
+        "practised": "Two numerical problems",
+        "needsWork": "Vector direction in multi-charge problems"
+      },
+      "keyPoints": [
+        "Force acts along the line joining two point charges",
+        "Magnitude is proportional to the product of the charges",
+        "Magnitude is inversely proportional to the square of the separation"
+      ],
+      "details": "Valid for point charges at rest. The force is attractive for unlike charges and repulsive for like charges.",
+      "formulas": [
+        {
+          "formula": "F = k |q1 q2| / r²",
+          "meaning": "k = 9×10⁹ N m²/C² in vacuum; q1, q2 are the charges; r is the separation"
+        }
+      ],
+      "derivations": [],
+      "examples": [
+        "Two 1 µC charges 1 m apart exert about 9×10⁻³ N on each other"
+      ],
+      "commonMistakes": [
+        "Forgetting that force is a vector when several charges are present"
+      ],
+      "connections": [
+        "Superposition principle for several charges"
+      ],
+      "questions": [
+        {
+          "question": "How does the force change if the distance is doubled?",
+          "answer": "It becomes one quarter."
+        }
+      ],
+      "notes": "Revisit vector addition."
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Quadratic equations",
+      "topic": "Nature of roots",
+      "keyPoints": [
+        "The discriminant D = b² − 4ac decides the nature of the roots"
+      ],
+      "formulas": [
+        {
+          "formula": "D = b² − 4ac",
+          "meaning": "D > 0: two real roots; D = 0: equal roots; D < 0: complex roots"
+        }
+      ]
+    }
+  ]
+}
